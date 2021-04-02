@@ -10,18 +10,59 @@ public class VacinaModel {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name="vacina_id", updatable = false)
-    public Long id;
+    private Long id;
 
     @Column(nullable = false, length = 100)
-    public String Nome;
+    private String nome;
 
     @Column(length = 60)
-    public String fabricante;
+    private String fabricante;
 
-    @Column(length = 40)
-    public String doenca;
+    @Column(length = 150, nullable = false)
+    private String doenca;
 
-    @OneToMany(mappedBy = "vacina")
-    public List<RegistroVacinacaoModel> registroVacinacao = new ArrayList<RegistroVacinacaoModel>();
+    @OneToMany(mappedBy = "vacina", fetch = FetchType.LAZY)
+    private List<RegistroVacinacaoModel> registroVacinacao = new ArrayList<RegistroVacinacaoModel>();
+
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    public String getDoenca() {
+        return doenca;
+    }
+
+    public void setDoenca(String doenca) {
+        this.doenca = doenca;
+    }
+
+    public List<RegistroVacinacaoModel> getRegistroVacinacao() {
+        return registroVacinacao;
+    }
+
+    public void setRegistroVacinacao(List<RegistroVacinacaoModel> registroVacinacao) {
+        this.registroVacinacao = registroVacinacao;
+    }
 
 }

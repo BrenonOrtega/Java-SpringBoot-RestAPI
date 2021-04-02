@@ -12,30 +12,30 @@ public class RegistroVacinacaoModel {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name="registro_vacina_id", updatable = false)
-    public Long id;
+    private Long id;
 
-    @Column
-    @Email
-    public String emailVacinado;
+    @Column(length = 150)
+    @Email 
+    private String emailVacinado;
 
     @Column(nullable = false) @CreationTimestamp
-    public Timestamp vacinatedAt;
+    private Timestamp vacinatedAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CadastroModel pessoa;    
 
     @ManyToOne
-    
-    public CadastroModel pessoa;    
-
-    @ManyToOne
-    public VacinaModel vacina;
+        private VacinaModel vacina;
 
     //Constructors
     //Default
     public RegistroVacinacaoModel() {  }
 
-    //TODO Controller
-    public RegistroVacinacaoModel(String email) {
-
+    @Override
+    public String toString(){
+        return String.format("%1$s - %2$s - %3$s - %4$s", id, emailVacinado, pessoa.getPrimeiroNome(), vacina.getNome());
     }
+
 
 
     //Getters and Setters from Here.

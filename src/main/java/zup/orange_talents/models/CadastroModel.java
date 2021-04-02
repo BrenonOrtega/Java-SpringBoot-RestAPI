@@ -4,6 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,14 +31,14 @@ public class CadastroModel {
     private Timestamp createdAt;
 
     @Email
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 150)
     private String email;
 
     
-    @Column(nullable = false, unique = true, length=13)
+    @Column(nullable = false, unique = true, length=17)
     private String cpf;
 
-    @OneToMany(mappedBy = "pessoa") @Column(name="registro_vacina_id")
+    @OneToMany(mappedBy = "pessoa", fetch = FetchType.LAZY) @Column(name="registro_vacina_id")
     private List<RegistroVacinacaoModel> registroVacinacoes = new ArrayList<RegistroVacinacaoModel>();
 
     @Column(nullable = false)

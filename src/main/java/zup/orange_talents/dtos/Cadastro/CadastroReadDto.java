@@ -8,10 +8,11 @@ public class CadastroReadDto {
     //#region Atributos
     public Long id;
     public String cpf;
-    public String nome;
+    public String primeiroNome;
+    public String sobrenome;
     public String email;
     public Date dataNascimento;
-    public List<Object> registroVacinacoes = new ArrayList<>();
+    public List<RegistroVacinacaoCadastroDto> registroVacinacoes = new ArrayList<>();
     
     
     //#endregion
@@ -47,12 +48,24 @@ public class CadastroReadDto {
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-    public String getNome() {
-        return nome;
+       
+    public String getPrimeiroNome() {
+        return primeiroNome;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }    
+
+    public void setPrimeiroNome(String primeiroNome) {
+        this.primeiroNome = primeiroNome;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
     //#endregion
+
+
     
 }
