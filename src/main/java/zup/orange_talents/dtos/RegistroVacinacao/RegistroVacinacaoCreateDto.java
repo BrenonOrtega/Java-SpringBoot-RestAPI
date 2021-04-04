@@ -1,8 +1,11 @@
 package zup.orange_talents.dtos.RegistroVacinacao;
 
+import java.util.Date;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -10,36 +13,28 @@ public class RegistroVacinacaoCreateDto {
 
     @NotNull @Email
     private String emailVacinado;
-    
-    @NotNull @CPF
-    private String cpfVacinado;
 
     @NotNull @NotBlank
     private String nomeVacina;
 
-    public String getEmailVacinado() {
-        return emailVacinado;
-    }
+    @NotNull @PastOrPresent
+    private Date vacinatedAt;
 
-    public void setEmailVacinado(String emailVacinado) {
-        this.emailVacinado = emailVacinado;
-    }
+    @CPF 
+    private String cpf;
 
-    public String getCpfVacinado() {
-        return cpfVacinado;
-    }
+    //#region Getters and Setters
+    public String getEmailVacinado() { return emailVacinado; }
+    public void setEmailVacinado(String emailVacinado) { this.emailVacinado = emailVacinado; }
 
-    public void setCpfVacinado(String cpfVacinado) {
-        this.cpfVacinado = cpfVacinado;
-    }
+    public String getNomeVacina() { return this.nomeVacina; } 
+    public void setNomeVacina(String nomeVacina) { this.nomeVacina = nomeVacina; }
 
-    public String getNomeVacina() {
-        return nomeVacina;
-    }
+    public Date getVacinatedAt() { return vacinatedAt; } 
+    public void setVacinatedAt(Date vacinatedAt) { this.vacinatedAt = vacinatedAt; }
 
-    public void setNomeVacina(String nomeVacina) {
-        this.nomeVacina = nomeVacina;
-    }
-
-
+    public String getCpf() { return cpf; }
+    public void setCpf(String cpf) { this.cpf = cpf; }
+    
+    //#endregion
 }

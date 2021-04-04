@@ -8,9 +8,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.br.CPF;
-import org.modelmapper.ModelMapper;
-
-import zup.orange_talents.models.CadastroModel;
 
 public class CadastroCreateDto {
     //#region Declaração de Atributos
@@ -63,10 +60,5 @@ public class CadastroCreateDto {
     }
 
     //#endregion
-
-    public CadastroModel createEntity(){
-        ModelMapper mapper = new ModelMapper();
-        return mapper.map(this, CadastroModel.class);
-    }
 }
 

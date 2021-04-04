@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 public class RegistroVacinacaoReadDto {
 
     //#region Atributos
+    private long id;
     private Timestamp vacinatedAt;
     private VacinaRegistroVacinacaoDto vacina;
     private CadastroRegistroVacinacaoDto pessoa;
@@ -13,6 +14,14 @@ public class RegistroVacinacaoReadDto {
     //#region Construtores
 
     public RegistroVacinacaoReadDto() { }
+
+    //#endregion
+
+    //#region Getters e Setters
+
+    public long getId() {return id; }
+
+    public void setId(long id) { this.id = id; }
 
     public Timestamp getVacinatedAt() {
         return vacinatedAt;
@@ -38,12 +47,14 @@ public class RegistroVacinacaoReadDto {
         this.pessoa = pessoa;
     }
 
-    //#endregion
+    
 
-    //#region Getters e Setters
+    //#endregion
 
     
-    //#endregion
+
+    
+   
 
    
 }

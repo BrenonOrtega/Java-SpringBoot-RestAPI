@@ -34,8 +34,8 @@ public class CadastroModel {
     @Column(nullable = false, unique = true, length = 150)
     private String email;
 
-    
-    @Column(nullable = false, unique = true, length=17)
+    @Column(nullable = false, unique = true, 
+        length=17, updatable = false)
     private String cpf;
 
     @OneToMany(mappedBy = "pessoa", fetch = FetchType.LAZY) @Column(name="registro_vacina_id")
