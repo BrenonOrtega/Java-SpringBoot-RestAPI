@@ -233,7 +233,7 @@ public class Services {
         mappedRegistro.setVacina( modelMapper.map(registro.getVacina(), VacinaRegistroVacinacaoDto.class) );
         return mappedRegistro;
     }
-
+    
     private CadastroReadDto mapCadastroDto(CadastroModel cadastro) {
         CadastroReadDto mappedCadastro = modelMapper.map(cadastro, CadastroReadDto.class);
             cadastro.getRegistroVacinacoes().forEach(registro -> {
